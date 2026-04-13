@@ -1,0 +1,89 @@
+.product {
+      transition: 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product:active {
+      transform: scale(0.95);
+    }
+
+    .product span {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      background: rgba(255,255,255,0.5);
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    #popup {
+      display: none;
+    }
+
+    #popup.flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product img {
+  transition: 0.3s;
+}
+
+.product:hover img {
+  transform: scale(1.1);
+}
+.product {
+  position: relative;
+  overflow: hidden;
+}
+
+.product span {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  transform: scale(0);
+  animation: ripple 0.5s linear;
+  pointer-events: none; /* 🔥 INI YANG PENTING */
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+.product {
+  transition: transform 0.2s ease;
+}
+.product:hover {
+  transform: scale(1.03);
+}
+
+/* ripple effect */
+.product span {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  transform: scale(0);
+  animation: ripple 0.5s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

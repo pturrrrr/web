@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>FARSHOP</title>
+
+      <!-- Link To CSS -->
+    <link rel="stylesheet" href="stylee.css">
+
+
+
+<header class="text-center py-6 px-4">
+  <h1 class="text-2xl md:text-3xl font-bold"></h1>
+
+<!-- ICON CART -->
+<div class="fixed top-5 right-5 z-50 cursor-pointer">
+  <i class="bx bx-shopping-bag text-3xl" id="cart-icon"></i>
+  <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span>
+</div>
+
+<!-- CART -->
+<div id="cart" class="fixed top-0 right-0 w-full sm:w-80 h-full bg-white shadow-lg p-4 hidden overflow-y-auto z-40">
+  <h2 class="text-xl font-bold mb-4">Keranjang</h2>
+  <div id="cart-items"></div>
+
+  <div class="mt-4 border-t pt-4">
+    <p class="font-bold">Total: Rp <span id="total-price">0</span></p>
+    <button onclick="openPopup()" class="w-full mt-3 bg-gray-600 text-white py-2 rounded">
+        Checkout ke WhatsApp
+
+    </button>
+
+  </div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="fixed inset-0 bg-black/50 hidden z-50 items-center justify-center">
+  <div class="bg-white p-5 rounded-lg w-[90%] max-w-sm mx-auto">
+    <h2 class="text-lg font-bold mb-3">Data Pembeli<div id="popup" class="fixed inset-0 bg-black/50 hidden z-50 items-center justify-center">
+  <div class="bg-white p-5 rounded-lg w-[90%] max-w-sm mx-auto">embeli</h2>
+    <input id="nama" type="text" placeholder="Nama" class="w-full border p-2 mb-2 rounded"/>
+    <textarea id="alamat" placeholder="Alamat" class="w-full border p-2 mb-3 rounded"></textarea>
+    <button onclick="checkoutWA()" class="w-full bg-gray-600 text-white py-2 rounded mb-2">Kirim ke WA</button>
+    <button onclick="closePopup()" class="w-full bg-gray-400 text-white py-2 rounded">Batal</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="text-center py-6">
+  <h1 class="text-3xl font-bold">FARSHOP</h1>
+  <p class="text-gray-600">Belanja murah & berkualitas</p>
+</header>
+
+<!-- SEARCH -->
+<div class="max-w-xl mx-auto px-4 mt-2">
+  <input id="search" type="text" placeholder="Cari produk..." class="w-full p-3 rounded border"/>
+</div>
+
+<!-- PRODUK -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-screen-xl mx-auto py-8 px-4">
+
+  <!-- PRODUK 1 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar1.jpg.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">Jacket Black </h3>
+    <p class="price" data-price="100000">Rp 100.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 2 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar2.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">Blue Jeans </h3>
+    <p class="price" data-price="100000">Rp 250.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 3 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar3.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">Seiko Watch </h3>
+    <p class="price" data-price="100000">Rp 500.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 4 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar4.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">Black Hoodie </h3>
+    <p class="price" data-price="100000">Rp 300.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 5 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar5.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">Cingcong Jacket </h3>
+    <p class="price" data-price="100000">Rp 470.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+
+  </div>
+  <!-- PRODUK 6 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar6.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">kEmej Jacket </h3>
+    <p class="price" data-price="100000">Rp 350.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 7 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar7.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">NIKE WHIITE </h3>
+    <p class="price" data-price="100000">Rp 500.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 8 -->
+  <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar8.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">NIKE JACKET </h3>
+    <p class="price" data-price="100000">Rp 600.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 9 -->
+    <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar9.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">WOLL JACKET</h3>
+    <p class="price" data-price="100000">Rp 370.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+  <!-- PRODUK 10 -->
+    <div class="bg-white p-3 rounded-lg shadow product">
+    <img src="gambar10.jpg" class="w-full aspect-square object-cover rounded-lg"/>
+    <h3 class="mt-2 font-semibold">Y2K Jeans </h3>
+    <p class="price" data-price="100000">Rp 450.000</p>
+    <button class="add-cart w-full mt-2 bg-gray-800 hover:bg-black text-white py-1 rounded">
+  Preorder
+</button>
+  </div>
+
+
+<script>
+const cartIcon = document.getElementById("cart-icon");
+const cart = document.getElementById("cart");
+const cartItems = document.getElementById("cart-items");
+const totalPriceEl = document.getElementById("total-price");
+const cartCount = document.getElementById("cart-count");
+
+let items = [];
+
+cartIcon.onclick = () => {
+  cart.classList.toggle("hidden");
+};
+
+// ripple + animasi
+document.querySelectorAll(".product").forEach(card => {
+  card.addEventListener("click", function(e) {
+
+    // ❌ jangan jalankan ripple kalau klik tombol
+    if (e.target.classList.contains("add-cart")) return;
+
+    const circle = document.createElement("span");
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(this.clientWidth, this.clientHeight);
+
+    circle.style.width = circle.style.height = size + "px";
+    circle.style.left = (e.clientX - rect.left - size/2) + "px";
+    circle.style.top = (e.clientY - rect.top - size/2) + "px";
+
+    const old = this.querySelector("span");
+    if (old) old.remove();
+
+    this.appendChild(circle);
+  });
+});
+
+// tambah cart
+document.querySelectorAll(".add-cart").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const product = btn.closest(".product");
+    const name = product.querySelector("h3").innerText;
+    const priceText = product.querySelector(".price").innerText;
+    const price = parseInt(priceText.replace(/[^0-9]/g, ""));
+
+    items.push({ name, price });
+    updateCart();
+  });
+});
+
+function updateCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  items.forEach((item, i) => {
+    total += item.price;
+
+    cartItems.innerHTML += `
+      <div class="flex justify-between mb-2">
+        <span>${item.name}</span>
+        <div>
+          <span>Rp ${item.price.toLocaleString()}</span>
+          <button onclick="removeItem(${i})" class="text-red-500 ml-2">x</button>
+        </div>
+      </div>
+    `;
+  });
+
+  totalPriceEl.innerText = total.toLocaleString();
+  cartCount.innerText = items.length;
+}
+
+function removeItem(i) {
+  items.splice(i,1);
+  updateCart();
+}
+
+// popup
+function openPopup() {
+  if (items.length === 0) return alert("Keranjang kosong!");
+  document.getElementById("popup").classList.add("flex");
+}
+
+function closePopup() {
+  document.getElementById("popup").classList.remove("flex");
+}
+
+// checkout WA
+function checkoutWA() {
+  let nama = document.getElementById("nama").value.trim();
+  let alamat = document.getElementById("alamat").value.trim();
+
+  // 🚨 VALIDASI
+  if (nama === "" || alamat === "") {
+    alert("⚠️ Nama dan alamat wajib diisi!");
+    return;
+  }
+
+  let msg = "Halo FARSHOP:%0A";
+  let total = 0;
+
+  items.forEach((item,i)=>{
+    msg += `${i+1}. ${item.name} - Rp ${item.price.toLocaleString()}%0A`;
+    total += item.price;
+  });
+
+  msg += `%0ATotal: Rp ${total.toLocaleString()}%0A`;
+  msg += `Nama: ${nama}%0AAlamat: ${alamat}`;
+
+  window.open(`https://wa.me/627777794497?text=${msg}`);
+}
+
+// search
+document.getElementById("search").addEventListener("keyup", function(){
+  let val = this.value.toLowerCase();
+
+  document.querySelectorAll(".product").forEach(p=>{
+    let name = p.querySelector("h3").innerText.toLowerCase();
+    p.style.display = name.includes(val) ? "block" : "none";
+  });
+});
+</script>
+
+</body>
+</html> 
